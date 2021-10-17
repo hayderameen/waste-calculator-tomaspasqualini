@@ -8,7 +8,6 @@ document.getElementById(
     <p class="submitWarning">Please enter only numbers</p>
     <!-- change to a number input -->
     <span class="dollar_sign">$</span>
-    <label for="totalRevenue"></label>
     <input
       type="number"
       id="totalRevenue"
