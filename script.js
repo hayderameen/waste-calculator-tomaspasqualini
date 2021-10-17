@@ -190,6 +190,7 @@ function calc() {
   calculateRevenueUpsale(calculatedCategoryRevenueArr);
   calculateWasteSavings(calculatedCategoryRevenueArr, totalWasteUserInputData);
   makeChart();
+  OneYearGraph();
   goToSimulation();
   return calculatedCategoryRevenueArr;
 }
