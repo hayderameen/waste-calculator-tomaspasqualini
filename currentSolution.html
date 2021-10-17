@@ -829,6 +829,8 @@
       let totalEconomicValueInt;
       let totalRevenueUpsaleInt;
       let totalWasteReductionValueInt;
+      let oneYearChart;
+      let TenYearChart;
 
       // Util
       function OneYearGraph() {
@@ -854,16 +856,16 @@
         document.getElementById("myChart").style.display = "none";
         document.getElementById("myChartTenYear").style.display = "block";
         totalEconomicValue.innerHTML = parseInt(
-          (totalEconomicValueInt * 12).toFixed(0)
+          (totalEconomicValueInt * 10).toFixed(0)
         ).toLocaleString();
         co2eReduced.innerHTML = parseInt(
-          (c02reducedTotal * 12).toFixed(0)
+          (c02reducedTotal * 10).toFixed(0)
         ).toLocaleString();
         totalRevenueUpsale.innerHTML = parseInt(
-          (totalRevenueUpsaleInt * 12).toFixed(0)
+          (totalRevenueUpsaleInt * 10).toFixed(0)
         ).toLocaleString();
         wasteReductionValue.innerHTML = parseInt(
-          (totalWasteReductionValueInt * 12).toFixed(0)
+          (totalWasteReductionValueInt * 10).toFixed(0)
         ).toLocaleString();
 
         document.querySelector(".months").classList.remove("active_period_btn");
@@ -1130,7 +1132,11 @@
       let ctx10 = document.getElementById("myChartTenYear").getContext("2d");
 
       function makeChart() {
-        let myChart = new Chart(ctx, {
+        // Destroy previous charts
+        if (oneYearChart) oneYearChart.destroy();
+        if (TenYearChart) TenYearChart.destroy();
+        // Build new charts
+        oneYearChart = new Chart(ctx, {
           type: "line",
           data: {
             labels: labels,
@@ -1188,7 +1194,7 @@
             },
           },
         });
-        let myChart10 = new Chart(ctx10, {
+        TenYearChart = new Chart(ctx10, {
           type: "line",
           data: {
             labels: labels,
