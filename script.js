@@ -112,9 +112,10 @@ function TenYearGraph() {
 function goToSimulation() {
   const results_container = document.querySelector(".results-container");
   results_container.style.display = "block";
+
   setTimeout(() => {
     window.scrollTo({
-      top: results_container.offsetTop - 20,
+      top: results_container.getBoundingClientRect().top + window.scrollY - 20,
       left: 0,
       behavior: "smooth",
     });
