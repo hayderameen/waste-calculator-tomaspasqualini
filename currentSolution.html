@@ -17,8 +17,8 @@
         background-color: black;
       }
       #simulation_main_wrapper {
-        width: 98%;
-        max-width: 70vw;
+        max-width: 98%;
+        width: 1000px;
         margin: 20px auto;
       }
       #simulation-wrapper,
@@ -42,7 +42,7 @@
       }
 
       .slider {
-        width: 50%;
+        width: 70%;
         margin: 2px 0px;
       }
       .totalRevenue {
@@ -109,6 +109,7 @@
       /* puts btns inline */
       .resultsBtns {
         display: flex;
+        flex-wrap: wrap;
         margin: 15px auto;
       }
 
@@ -183,6 +184,7 @@
 
       .metric_results_container {
         display: flex;
+        flex-wrap: wrap;
         margin-top: 15px;
       }
       .metricResult {
@@ -194,12 +196,6 @@
         height: 100%;
       }
 
-      /* bullet points to add later */
-      /* 
-        .listItem:before { 
-          content:"• ";
-        }
-         */
       .metric {
         color: #404040;
       }
@@ -238,13 +234,6 @@
       }
 
       @media only screen and (max-width: 580px) {
-        body {
-          width: 100vw;
-          margin: 0 auto;
-        }
-        #simulation-wrapper {
-          width: 85%;
-        }
         .grid {
           width: 100%;
         }
@@ -256,8 +245,9 @@
           padding: 20px 10px 90px 0px;
         }
 
-        .btn {
-          padding: 0.2rem 0.4rem;
+        p.subinformation {
+          width: 100%;
+          margin-bottom: 10px;
         }
 
         .metricTitle,
@@ -267,8 +257,12 @@
         .metricResult > span {
           font-size: 12px;
         }
-        .metricTitle {
-          min-height: 100px;
+        .period_btn {
+          padding: 0.8rem 1.5rem;
+        }
+        .metricResult {
+          width: 50%;
+          margin: 10px auto;
         }
       }
     </style>
@@ -310,7 +304,7 @@
               min="0"
               max="30"
               value="8"
-              step="1"
+              step="0.5"
               class="slider sliderRev packedMeals"
               id="packedMeals"
               name="packedMeals"
@@ -332,7 +326,7 @@
                 min="0"
                 max="100"
                 value="10"
-                step="1"
+                step="0.5"
                 class="slider packedMeals"
                 id="packedMealsWaste"
                 name="packedMealsWaste"
@@ -360,7 +354,7 @@
               min="0"
               max="30"
               value="6"
-              step="1"
+              step="0.5"
               class="slider sliderRev bakery"
               id="bakery"
               name="bakery"
@@ -382,7 +376,7 @@
                 min="0"
                 max="100"
                 value="15"
-                step="1"
+                step="0.5"
                 class="slider bakeryWaste"
                 id="bakeryWaste"
                 name="bakeryWaste"
@@ -413,7 +407,7 @@
               min="0"
               max="30"
               value="5"
-              step="1"
+              step="0.5"
               class="slider sliderRev frozenFood"
               id="frozenFood"
               name="frozenFood"
@@ -436,7 +430,7 @@
                 min="0"
                 max="100"
                 value="1"
-                step="1"
+                step="0.5"
                 class="slider frozenFoodWaste"
                 id="frozenFoodWaste"
                 name="frozenFoodWaste"
@@ -465,7 +459,7 @@
               min="0"
               max="30"
               value="1"
-              step="1"
+              step="0.5"
               class="slider sliderRev seafood"
               id="seafood"
               name="seafood"
@@ -487,7 +481,7 @@
                 min="0"
                 max="100"
                 value="12"
-                step="1"
+                step="0.5"
                 class="slider seafoodWaste"
                 id="seafoodWaste"
                 name="seafoodWaste"
@@ -515,7 +509,7 @@
               min="0"
               max="30"
               value="14"
-              step="1"
+              step="0.5"
               class="slider sliderRev fruitAndVegetables"
               id="fruitAndVegetables"
               name="fruitAndVegetables"
@@ -537,7 +531,7 @@
                 min="0"
                 max="100"
                 value="14"
-                step="1"
+                step="0.5"
                 class="slider fruitAndVegetablesWaste"
                 id="fruitAndVegetablesWaste"
                 name="fruitAndVegetablesWaste"
@@ -566,7 +560,7 @@
               min="0"
               max="30"
               value="10"
-              step="1"
+              step="0.5"
               class="slider sliderRev dairy"
               id="dairy"
               name="dairy"
@@ -589,7 +583,7 @@
                 min="0"
                 max="100"
                 value="5"
-                step="1"
+                step="0.5"
                 class="slider dairyWaste"
                 id="dairyWaste"
                 name="dairyWaste"
@@ -618,7 +612,7 @@
               min="0"
               max="30"
               value="10"
-              step="1"
+              step="0.5"
               class="slider sliderRev meatAndPoultry"
               id="meatAndPoultry"
               name="meatAndPoultry"
@@ -641,7 +635,7 @@
                 min="0"
                 max="100"
                 value="6"
-                step="1"
+                step="0.5"
                 class="slider meatAndPoultryWaste"
                 id="meatAndPoultryWaste"
                 name="meatAndPoultryWaste"
@@ -669,7 +663,7 @@
               min="0"
               max="100"
               value="0"
-              step="1"
+              step="0.5"
               class="slider sliderRev dryFoods"
               id="dryFoods"
               name="dryFoods"
