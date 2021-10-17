@@ -29,7 +29,7 @@ document.getElementById(
     <div class="packedMeals grid">
       <img
         class="icon"
-        src="https://nosremetnarg.github.io/wasteless/Assets/bread.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bread.png"
         alt=""
       />
 
@@ -83,7 +83,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
       <img
         class="icon milk"
-        src="https://nosremetnarg.github.io/wasteless/Assets/milk.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
         alt=""
       />
       <p>Bakery</p>
@@ -137,7 +137,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/frozenFood.png" alt="" /> -->
       <img
         class="icon milk frozenfoods"
-        src="https://nosremetnarg.github.io/wasteless/Assets/frozenFood.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/frozenFood.png"
         alt=""
       />
       <p>Frozen Foods</p>
@@ -191,7 +191,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/fish.png" alt="" /> -->
       <img
         class="icon milk"
-        src="https://nosremetnarg.github.io/wasteless/Assets/fish.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fish.png"
         alt=""
       />
 
@@ -246,7 +246,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/fruitAndVegetables.png" alt="" /> -->
       <img
         class="icon milk"
-        src="https://nosremetnarg.github.io/wasteless/Assets/fruitAndVegetables.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fruitAndVegetables.png"
         alt=""
       />
       <p>Fruits & Vegetables</p>
@@ -300,7 +300,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
       <img
         class="icon milk"
-        src="https://nosremetnarg.github.io/wasteless/Assets/milk.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
         alt=""
       />
 
@@ -356,7 +356,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/meat.png" alt="" /> -->
       <img
         class="icon milk"
-        src="https://nosremetnarg.github.io/wasteless/Assets/meat.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/meat.png"
         alt=""
       />
 
@@ -412,7 +412,7 @@ document.getElementById(
       <!-- <img class="icon milk invisible" src="/Assets/milk.png" alt="" /> -->
       <img
         class="icon milk invisible"
-        src="https://nosremetnarg.github.io/wasteless/Assets/milk.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
         alt=""
       />
 
