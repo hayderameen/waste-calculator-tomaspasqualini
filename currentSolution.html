@@ -10,6 +10,9 @@
       * {
         font-family: "Roboto", sans-serif;
       }
+      body {
+        background-color: white;
+      }
       #simulation-wrapper,
       .results-container {
         background-color: white;
@@ -22,9 +25,10 @@
         padding: 10px;
         border-radius: 10px;
       }
-      body {
-        background-color: white;
+      .results-container {
+        display: none;
       }
+
       .header-section {
         width: 100%;
       }
@@ -78,7 +82,7 @@
         opacity: 0;
       }
 
-      .btn {
+      .period_btn {
         border-radius: 10px;
         border: none;
         padding: 1rem 2rem;
@@ -89,17 +93,22 @@
         display: flex;
       }
 
-      .btn:hover {
+      .period_btn:hover {
         cursor: pointer;
         transform: scale(1.02);
       }
       .months {
-        background-color: #492fc4;
-        color: white;
+        color: #492fc4;
+        background-color: #f5f5f5;
+        margin-right: 15px;
       }
       .years {
         color: #492fc4;
         background-color: #f5f5f5;
+      }
+      .active_period_btn {
+        background-color: #492fc4;
+        color: #f5f5f5;
       }
 
       .simulatebtn button {
@@ -673,7 +682,7 @@
         SIMULATE
       </button>
     </div>
-    <div class="results-container show">
+    <div class="results-container">
       <div class="resultsTitle">
         <h4>
           This is what you should expect after implementing Wasteless Store
@@ -681,11 +690,13 @@
         </h4>
         <div class="resultsBtns">
           <p class="subinformation">Show results for:</p>
-          <button onClick="calc()" class="btn months">12 Months</button>
           <button
-            onClick="tenYearFunc(tenYear, myChartFirst, myChartCanvas)"
-            class="btn years"
+            onClick="OneYearGraph()"
+            class="months period_btn active_period_btn"
           >
+            12 Months
+          </button>
+          <button onClick="TenYearGraph()" class="years period_btn">
             10 Years
           </button>
           <!-- <button onClick="updateChart()" class="btn years">updateChart</button> -->
@@ -694,7 +705,12 @@
 
       <div class="chart">
         <canvas id="myChart" width="800" height="450"></canvas>
-        <canvas id="myChartTenYear" width="800" height="450"></canvas>
+        <canvas
+          id="myChartTenYear"
+          width="800"
+          height="450"
+          style="display: none"
+        ></canvas>
       </div>
       <div class="metric_results_container">
         <div class="totalEconomicValueContainer metricResult">
@@ -724,7 +740,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
     <script type="text/javascript">
       // Fixed Value Variables
-
       let avgCostKgFixedAverageArr = [10, 6, 1.2, 5, 3, 12, 4];
       // Column b in spreadsheet
       let userInputPercentages = [0.08, 0.05, 0.14, 0.1, 0.06, 0.01, 0.1];
@@ -796,6 +811,60 @@
       let monthlyRevenue;
       let monthlyWaste;
       let c02reducedTotal;
+      let totalEconomicValueInt;
+      let totalRevenueUpsaleInt;
+      let totalWasteReductionValueInt;
+
+      // Util
+      function OneYearGraph() {
+        document.getElementById("myChart").style.display = "block";
+        document.getElementById("myChartTenYear").style.display = "none";
+        totalEconomicValue.innerHTML = parseInt(
+          totalEconomicValueInt.toFixed(0)
+        ).toLocaleString();
+        co2eReduced.innerHTML = parseInt(
+          c02reducedTotal.toFixed(0)
+        ).toLocaleString();
+        totalRevenueUpsale.innerHTML = parseInt(
+          totalRevenueUpsaleInt.toFixed(0)
+        ).toLocaleString();
+        wasteReductionValue.innerHTML = parseInt(
+          totalWasteReductionValueInt.toFixed(0)
+        ).toLocaleString();
+
+        document.querySelector(".months").classList.add("active_period_btn");
+        document.querySelector(".years").classList.remove("active_period_btn");
+      }
+      function TenYearGraph() {
+        document.getElementById("myChart").style.display = "none";
+        document.getElementById("myChartTenYear").style.display = "block";
+        totalEconomicValue.innerHTML = parseInt(
+          (totalEconomicValueInt * 12).toFixed(0)
+        ).toLocaleString();
+        co2eReduced.innerHTML = parseInt(
+          (c02reducedTotal * 12).toFixed(0)
+        ).toLocaleString();
+        totalRevenueUpsale.innerHTML = parseInt(
+          (totalRevenueUpsaleInt * 12).toFixed(0)
+        ).toLocaleString();
+        wasteReductionValue.innerHTML = parseInt(
+          (totalWasteReductionValueInt * 12).toFixed(0)
+        ).toLocaleString();
+
+        document.querySelector(".months").classList.remove("active_period_btn");
+        document.querySelector(".years").classList.add("active_period_btn");
+      }
+      function goToSimulation() {
+        const results_container = document.querySelector(".results-container");
+        results_container.style.display = "block";
+        setTimeout(() => {
+          window.scrollTo({
+            top: results_container.offsetTop - 20,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 10);
+      }
 
       // LISTENING FUNCTIONS
       function totalRevenueSliderListenerFunc(e) {
@@ -868,6 +937,7 @@
           totalWasteUserInputData
         );
         makeChart();
+        goToSimulation();
         return calculatedCategoryRevenueArr;
       }
 
@@ -905,6 +975,7 @@
         let reducer = (x, y) => x + y;
         let reducedArr = calculatedRevenueUpsale.reduce(reducer);
         resultsArr[0] = reducedArr;
+        totalRevenueUpsaleInt = reducedArr;
         totalRevenueUpsale.innerHTML = reducedArr.toLocaleString();
         resultsObj.revenueUpsale = reducedArr.toLocaleString();
         return reducedArr;
@@ -963,12 +1034,14 @@
 
         let reducer2 = (x, y) => x + y;
         let reducedArr2 = result.reduce(reducer2);
+        totalWasteReductionValueInt = reducedArr2;
         wasteReductionValue.innerHTML = reducedArr2.toLocaleString();
         resultsObj.wasteReductionValue = reducedArr2.toLocaleString();
 
         resultsArr[1] = reducedArr2;
         let reducer3 = (a, b) => a + b;
         let reducedArr3 = resultsArr.reduce(reducer3);
+        totalEconomicValueInt = reducedArr3;
         totalEconomicValue.innerHTML = reducedArr3.toLocaleString();
         getMonthlyValuesForRevenueAndWaste(resultsArr);
         return resultsArr;
@@ -1160,10 +1233,10 @@
       }
 
       // GETS DATA ON PAGE LOAD
-      window.addEventListener("load", (event) => {
-        totalRevenueSliderListenerFunc();
-        totalWasteUserInput();
-      });
+      //   window.addEventListener("load", (event) => {
+      totalRevenueSliderListenerFunc();
+      totalWasteUserInput();
+      //   });
     </script>
   </body>
 </html>
