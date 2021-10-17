@@ -4,6 +4,248 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wasteless Simulation</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+      * {
+        font-family: "Roboto", sans-serif;
+      }
+      #simulation-wrapper,
+      .results-container {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 70vw;
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      body {
+        background-color: white;
+      }
+      .header-section {
+        width: 100%;
+      }
+
+      .slider {
+        width: 50%;
+        margin: 2px 0px;
+      }
+      .totalRevenue {
+        width: 80%;
+      }
+      #totalRevenue {
+        height: 59px;
+        width: 270px;
+        font-size: 30px;
+      }
+      #totalRevenue:focus {
+        outline: 2px solid #47d71d;
+      }
+      .revenueOutput {
+        color: grey;
+      }
+
+      .main-calculator-section {
+        text-align: left;
+        width: 100%;
+      }
+
+      .subinformation {
+        font-size: 14px;
+        color: grey;
+      }
+
+      .grid {
+        width: 50%;
+        float: left;
+        padding-bottom: 20px;
+      }
+
+      img {
+        float: left;
+        width: 10%;
+      }
+      .icon {
+        padding: 20px 10px 60px 0px;
+      }
+      .icon.frozenfoods {
+        width: 9%;
+      }
+      .invisible {
+        opacity: 0;
+      }
+
+      .btn {
+        border-radius: 10px;
+        border: none;
+        padding: 1rem 2rem;
+        transition: 0.5s ease-in-out;
+      }
+      /* puts btns inline */
+      .resultsBtns {
+        display: flex;
+      }
+
+      .btn:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+      }
+      .months {
+        background-color: #492fc4;
+        color: white;
+      }
+      .years {
+        color: #492fc4;
+        background-color: #f5f5f5;
+      }
+
+      .simulatebtn button {
+        color: white;
+        background-color: #492fc4;
+        border-radius: 10px;
+        border: none;
+        padding: 1rem 2rem;
+        transition: 0.5s ease-in-out;
+      }
+      p.subinformation {
+        padding-right: 20px;
+      }
+
+      .simulatebtn button:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+
+      .simulatebtn {
+        width: 70.5vw;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 10px;
+        padding-right: 0;
+      }
+      .border-bottom {
+        border-bottom: 1px solid black;
+      }
+      .hide {
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+      input {
+        cursor: pointer;
+      }
+      /* disable user from moving slider */
+      #dryFoods {
+        pointer-events: none;
+      }
+      .dryFood {
+        color: #492fc4;
+      }
+
+      .revenueError {
+        display: none;
+        color: red;
+      }
+
+      /* results container */
+
+      .metric_results_container {
+        display: flex;
+      }
+      .metricResult {
+        width: 25%;
+        color: #929292;
+      }
+      /* image container */
+      .img-container {
+        height: 100%;
+      }
+
+      /* bullet points to add later */
+      /* 
+        .listItem:before { 
+          content:"• ";
+        }
+         */
+      .metric {
+        color: #404040;
+      }
+      .upsale,
+      .totalUpsale {
+        color: #492fc4;
+      }
+      .value,
+      .wasteReductionValue {
+        color: #47d71d;
+      }
+
+      .grey {
+        opacity: 0.2;
+      }
+      .noClick {
+        pointer-events: none;
+      }
+      #myChart,
+      #myChartTenYear {
+        width: 100%;
+      }
+
+      #myChart {
+        display: block;
+      }
+
+      #myChartTenYear {
+        display: none;
+      }
+
+      .submitWarning {
+        font-size: 12px;
+        color: red;
+        display: none;
+      }
+
+      @media only screen and (max-width: 580px) {
+        body {
+          width: 100vw;
+          margin: 0 auto;
+        }
+        #simulation-wrapper {
+          width: 85%;
+        }
+        .grid {
+          width: 100%;
+        }
+
+        .slider {
+          width: 65%;
+        }
+        .icon {
+          padding: 20px 10px 90px 0px;
+        }
+
+        .btn {
+          padding: 0.2rem 0.4rem;
+        }
+
+        .metricTitle,
+        .metric,
+        .metricTitle > span,
+        .co2reduced > span,
+        .metricResult > span {
+          font-size: 12px;
+        }
+        .metricTitle {
+          min-height: 100px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- wasteless simulations -->
@@ -478,248 +720,6 @@
       </div>
     </div>
 
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-      * {
-        font-family: "Roboto", sans-serif;
-      }
-      #simulation-wrapper,
-      .results-container {
-        background-color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 70vw;
-        margin: 0 auto;
-        padding: 10px;
-        border-radius: 10px;
-      }
-      body {
-        background-color: white;
-      }
-      .header-section {
-        width: 100%;
-      }
-
-      .slider {
-        width: 50%;
-        margin: 2px 0px;
-      }
-      .totalRevenue {
-        width: 80%;
-      }
-      #totalRevenue {
-        height: 59px;
-        width: 270px;
-        font-size: 30px;
-      }
-      #totalRevenue:focus {
-        outline: 2px solid #47d71d;
-      }
-      .revenueOutput {
-        color: grey;
-      }
-
-      .main-calculator-section {
-        text-align: left;
-        width: 100%;
-      }
-
-      .subinformation {
-        font-size: 14px;
-        color: grey;
-      }
-
-      .grid {
-        width: 50%;
-        float: left;
-        padding-bottom: 20px;
-      }
-
-      img {
-        float: left;
-        width: 10%;
-      }
-      .icon {
-        padding: 20px 10px 60px 0px;
-      }
-      .icon.frozenfoods {
-        width: 9%;
-      }
-      .invisible {
-        opacity: 0;
-      }
-
-      .btn {
-        border-radius: 10px;
-        border: none;
-        padding: 1rem 2rem;
-        transition: 0.5s ease-in-out;
-      }
-      /* puts btns inline */
-      .resultsBtns {
-        display: flex;
-      }
-
-      .btn:hover {
-        cursor: pointer;
-        transform: scale(1.02);
-      }
-      .months {
-        background-color: #492fc4;
-        color: white;
-      }
-      .years {
-        color: #492fc4;
-        background-color: #f5f5f5;
-      }
-
-      .simulatebtn button {
-        color: white;
-        background-color: #492fc4;
-        border-radius: 10px;
-        border: none;
-        padding: 1rem 2rem;
-        transition: 0.5s ease-in-out;
-      }
-      p.subinformation {
-        padding-right: 20px;
-      }
-
-      .simulatebtn button:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-      }
-
-      .simulatebtn {
-        width: 70.5vw;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        flex-direction: column;
-        margin: 0 auto;
-        padding: 10px;
-        padding-right: 0;
-      }
-      .border-bottom {
-        border-bottom: 1px solid black;
-      }
-      .hide {
-        display: none;
-      }
-      .show {
-        display: block;
-      }
-      input {
-        cursor: pointer;
-      }
-      /* disable user from moving slider */
-      #dryFoods {
-        pointer-events: none;
-      }
-      .dryFood {
-        color: #492fc4;
-      }
-
-      .revenueError {
-        display: none;
-        color: red;
-      }
-
-      /* results container */
-
-      .metric_results_container {
-        display: flex;
-      }
-      .metricResult {
-        width: 25%;
-        color: #929292;
-      }
-      /* image container */
-      .img-container {
-        height: 100%;
-      }
-
-      /* bullet points to add later */
-      /* 
-      .listItem:before { 
-        content:"• ";
-      }
-       */
-      .metric {
-        color: #404040;
-      }
-      .upsale,
-      .totalUpsale {
-        color: #492fc4;
-      }
-      .value,
-      .wasteReductionValue {
-        color: #47d71d;
-      }
-
-      .grey {
-        opacity: 0.2;
-      }
-      .noClick {
-        pointer-events: none;
-      }
-      #myChart,
-      #myChartTenYear {
-        width: 100%;
-      }
-
-      #myChart {
-        display: block;
-      }
-
-      #myChartTenYear {
-        display: none;
-      }
-
-      .submitWarning {
-        font-size: 12px;
-        color: red;
-        display: none;
-      }
-
-      @media only screen and (max-width: 580px) {
-        body {
-          width: 100vw;
-          margin: 0 auto;
-        }
-        #simulation-wrapper {
-          width: 85%;
-        }
-        .grid {
-          width: 100%;
-        }
-
-        .slider {
-          width: 65%;
-        }
-        .icon {
-          padding: 20px 10px 90px 0px;
-        }
-
-        .btn {
-          padding: 0.2rem 0.4rem;
-        }
-
-        .metricTitle,
-        .metric,
-        .metricTitle > span,
-        .co2reduced > span,
-        .metricResult > span {
-          font-size: 12px;
-        }
-        .metricTitle {
-          min-height: 100px;
-        }
-      }
-    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
     <script type="text/javascript">
@@ -852,27 +852,6 @@
       }
 
       function calc() {
-        // totalWasteUserInputData[0] = parseInt(
-        //   document.getElementById("packedMealsOutputWaste").innerHTML
-        // );
-        // totalWasteUserInputData[1] = parseInt(
-        //   document.getElementById("bakeryWasteOutput").innerHTML
-        // );
-        // totalWasteUserInputData[2] = parseInt(
-        //   document.getElementById("frozenFoodOutputWaste").innerHTML
-        // );
-        // totalWasteUserInputData[3] = parseInt(
-        //   document.getElementById("seafoodWasteOutput").innerHTML
-        // );
-        // totalWasteUserInputData[4] = parseInt(
-        //   document.getElementById("fruitAndVegetablesWasteOutput").innerHTML
-        // );
-        // totalWasteUserInputData[5] = parseInt(
-        //   document.getElementById("dairyWasteOutput").innerHTML
-        // );
-        // totalWasteUserInputData[6] = parseInt(
-        //   document.getElementById("meatAndPoultryWasteOutput").innerHTML
-        // );
         //   Empty Arr before recalculating
         calculatedCategoryRevenueArr = [];
         let totalRevenueNum = parseInt(totalRevenue.value);
@@ -1045,21 +1024,22 @@
       // CHART CODE // // // // // // // // // // // // // // //
       // Chart scripts
       let labels = [
-        "jan",
-        "feb",
-        "march",
-        "april",
-        "may",
-        "june",
-        "july",
-        "august",
-        "september",
-        "october",
-        "november",
-        "december",
+        "Jan",
+        "Feb",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
       ];
 
       let ctx = document.getElementById("myChart").getContext("2d");
+      let ctx10 = document.getElementById("myChartTenYear").getContext("2d");
 
       function makeChart() {
         let myChart = new Chart(ctx, {
@@ -1102,6 +1082,61 @@
                   monthlyRevenueArrWaste[10],
                   monthlyRevenueArrWaste[11],
                   monthlyRevenueArrWaste[12],
+                ],
+                borderColor: ["#47D71D"],
+                fill: false,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+        let myChart10 = new Chart(ctx10, {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Revenue Upsale",
+                data: [
+                  monthlyRevenueArr[1] * 12,
+                  monthlyRevenueArr[2] * 12,
+                  monthlyRevenueArr[3] * 12,
+                  monthlyRevenueArr[4] * 12,
+                  monthlyRevenueArr[5] * 12,
+                  monthlyRevenueArr[6] * 12,
+                  monthlyRevenueArr[7] * 12,
+                  monthlyRevenueArr[8] * 12,
+                  monthlyRevenueArr[9] * 12,
+                  monthlyRevenueArr[10] * 12,
+                  monthlyRevenueArr[11] * 12,
+                  monthlyRevenueArr[12] * 12,
+                ],
+                borderColor: ["#492FC4"],
+                full: false,
+                borderWidth: 1,
+              },
+              {
+                label: "Waste Reduction",
+                data: [
+                  monthlyRevenueArrWaste[1] * 12,
+                  monthlyRevenueArrWaste[2] * 12,
+                  monthlyRevenueArrWaste[3] * 12,
+                  monthlyRevenueArrWaste[4] * 12,
+                  monthlyRevenueArrWaste[5] * 12,
+                  monthlyRevenueArrWaste[6] * 12,
+                  monthlyRevenueArrWaste[7] * 12,
+                  monthlyRevenueArrWaste[8] * 12,
+                  monthlyRevenueArrWaste[9] * 12,
+                  monthlyRevenueArrWaste[10] * 12,
+                  monthlyRevenueArrWaste[11] * 12,
+                  monthlyRevenueArrWaste[12] * 12,
                 ],
                 borderColor: ["#47D71D"],
                 fill: false,
