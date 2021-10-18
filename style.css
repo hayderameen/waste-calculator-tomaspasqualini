@@ -25,10 +25,108 @@
   width: 100%;
 }
 
+#simulation_main_wrapper input[type="range"] {
+  -webkit-appearance: none;
+  vertical-align: middle;
+  outline: none;
+  border: none;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+  height: 15px;
+  border-radius: 20px;
+}
+
+#simulation_main_wrapper input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #f2f2f2;
+  border-radius: 3px !important;
+  border: 1px solid transparent;
+}
+
+#simulation_main_wrapper
+  input[type="range"][disabled]::-webkit-slider-runnable-track {
+  border: 1px solid #d7dbdd;
+  background-color: transparent;
+  opacity: 0.4;
+}
+
+#simulation_main_wrapper input[type="range"]::-moz-range-track {
+  background-color: #f2f2f2;
+  border-radius: 3px !important;
+  border: 1px solid transparent;
+  height: 15px;
+}
+
+#simulation_main_wrapper input[type="range"]::-ms-track {
+  background-color: #f2f2f2;
+  border-radius: 3px !important;
+  border: 1px solid transparent;
+  height: 15px;
+}
+
+#simulation_main_wrapper input[type="range"]::-ms-fill-lower {
+  background-color: #d7dbdd;
+  border-radius: 3px;
+}
+
+#simulation_main_wrapper input[type="range"]::-ms-fill-upper {
+  background-color: #d7dbdd;
+  border-radius: 3px;
+}
+
+#simulation_main_wrapper input[type="range"]::-ms-tooltip {
+  display: none; /* display and visibility only */
+}
+
+#simulation_main_wrapper input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none !important;
+  background-color: #492fc4;
+  box-shadow: -100vw 0 0 99vw #492fc466;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+#simulation_main_wrapper input[type="range"]:active::-moz-range-thumb {
+  outline: none;
+}
+
+#simulation_main_wrapper input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background-color: #492fc4;
+  box-shadow: -100vw 0 0 99.5vw #492fc466;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+#simulation_main_wrapper input[type="range"][disabled]::-webkit-slider-thumb {
+  background-color: transparent;
+  border: 1px solid #d7dbdd;
+}
+
+#simulation_main_wrapper input[type="range"]:active::-webkit-slider-thumb {
+  outline: none;
+}
+
+#simulation_main_wrapper input[type="range"]::-ms-thumb {
+  -webkit-appearance: none !important;
+  background-color: #492fc4;
+  box-shadow: -100vw 0 0 99.5vw #492fc466;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+#simulation_main_wrapper input[type="range"]:active::-ms-thumb {
+  border: none;
+}
+
 .slider {
   width: 70%;
   margin: 2px 0px;
 }
+
 .totalRevenue {
   width: 80%;
 }
