@@ -4,33 +4,30 @@ document.getElementById(
 <!-- wasteless simulations -->
 <div id="simulation-wrapper" class="simulation-wrapper">
   <div class="header-section">
-    <p>Whats your Total Annual Revenue(gross)?</p>
+    <p style="font-weight: bold">
+      Whats your Total Annual Revenue(gross)?
+    </p>
     <p class="submitWarning">Please enter only numbers</p>
     <!-- change to a number input -->
     <span class="dollar_sign">$</span>
+    <label for="totalRevenue"></label>
     <input
-      type="number"
+      type="text"
       id="totalRevenue"
       name="totalRevenue"
-      min="1"
-      max="5000000000"
       value="50000000000"
     />
     <!-- <input type="submit" id="submit" /> -->
 
-    <p>
-      Out of the total revenue, how much each of the following represent and
-      what's their waste %?
+    <p style="font-weight: bold">
+      Out of the total revenue, how much each of the following represent
+      and what's their waste %?
     </p>
   </div>
 
   <div class="main-calculator-section">
     <div class="packedMeals grid">
-      <img
-        class="icon"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bread.png"
-        alt=""
-      />
+      <img class="icon" src="Assets/bread.png" alt="" />
 
       <p>Packed meals / Deli</p>
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -80,11 +77,7 @@ document.getElementById(
 
     <div class="bakery grid">
       <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
-      <img
-        class="icon milk"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
-        alt=""
-      />
+      <img class="icon milk" src="Assets/bakery.png" alt="Bakery" />
       <p>Bakery</p>
 
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -136,7 +129,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/frozenFood.png" alt="" /> -->
       <img
         class="icon milk frozenfoods"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/frozenFood.png"
+        src="Assets/frozenFood.png"
         alt=""
       />
       <p>Frozen Foods</p>
@@ -188,11 +181,7 @@ document.getElementById(
 
     <div class="seafood grid">
       <!-- <img class="icon milk" src="/Assets/fish.png" alt="" /> -->
-      <img
-        class="icon milk"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fish.png"
-        alt=""
-      />
+      <img class="icon milk" src="Assets/fish.png" alt="" />
 
       <p>Seafood</p>
       <!-- seafoodOutput seafoodWasteOutput -->
@@ -243,11 +232,7 @@ document.getElementById(
 
     <div class="fruitsAndVegetables grid">
       <!-- <img class="icon milk" src="/Assets/fruitAndVegetables.png" alt="" /> -->
-      <img
-        class="icon milk"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fruitAndVegetables.png"
-        alt=""
-      />
+      <img class="icon milk" src="Assets/fruitAndVegetables.png" alt="" />
       <p>Fruits & Vegetables</p>
 
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -297,11 +282,7 @@ document.getElementById(
 
     <div class="dairy grid">
       <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
-      <img
-        class="icon milk"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
-        alt=""
-      />
+      <img class="icon milk" src="Assets/milk.png" alt="" />
 
       <p>Dairy</p>
 
@@ -353,11 +334,7 @@ document.getElementById(
 
     <div class="meatAndPoultry grid">
       <!-- <img class="icon milk" src="/Assets/meat.png" alt="" /> -->
-      <img
-        class="icon milk"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/meat.png"
-        alt=""
-      />
+      <img class="icon milk" src="Assets/meat.png" alt="" />
 
       <p>Meat & Poultry</p>
 
@@ -409,11 +386,7 @@ document.getElementById(
 
     <div class="dryFood grid">
       <!-- <img class="icon milk invisible" src="/Assets/milk.png" alt="" /> -->
-      <img
-        class="icon milk invisible"
-        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
-        alt=""
-      />
+      <img class="icon milk invisible" src="Assets/milk.png" alt="" />
 
       <p>Dry foods and other products</p>
       <p class="slider sliderRev subinformation">% of store</p>
@@ -487,17 +460,17 @@ document.getElementById(
     </div>
     <div class="totalEconomicValueContainer metricResult">
       <h4 class="metricTitle">CO2e Reduced</h4>
-      <span class="metric"></span>
-      <span class="metric co2reduced"></span><span> Kg</span>
+      <span class="metric co2reduced"></span
+      ><span class="metric"> Kg</span>
     </div>
     <div class="totalEconomicValueContainer metricResult listItem upsale">
       <h4 class="metricTitle">Total Revenue Upsale</h4>
-      <span>$</span>
+      <span class="metric" style="color: #492fc4">$</span>
       <span class="upsale totalUpsale metric"></span>
     </div>
     <div class="totalEconomicValueContainer metricResult listItem value">
       <h4 class="metricTitle">Waste Reduction Value</h4>
-      <span>$</span>
+      <span class="metric" style="color: #47d71d">$</span>
       <span class="value wasteReductionValue metric"></span>
     </div>
   </div>
