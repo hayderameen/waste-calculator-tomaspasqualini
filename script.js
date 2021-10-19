@@ -381,7 +381,7 @@ let labels = [
   "December",
 ];
 let labels10 = [];
-let currentYear = new Date().getFullYear();
+let currentYear = new Date().getFullYear() + 1;
 for (let i = 0; i < 10; i++) {
   labels10.push(currentYear + i);
 }
