@@ -27,7 +27,7 @@ document.getElementById(
 
   <div class="main-calculator-section">
     <div class="packedMeals grid">
-      <img class="icon" src="Assets/bread.png" alt="" />
+      <img class="icon" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bread.png" alt="" />
 
       <p>Packed meals / Deli</p>
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -77,7 +77,7 @@ document.getElementById(
 
     <div class="bakery grid">
       <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
-      <img class="icon milk" src="Assets/bakery.png" alt="Bakery" />
+      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bakery.png" alt="Bakery" />
       <p>Bakery</p>
 
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -129,7 +129,7 @@ document.getElementById(
       <!-- <img class="icon milk" src="/Assets/frozenFood.png" alt="" /> -->
       <img
         class="icon milk frozenfoods"
-        src="Assets/frozenFood.png"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/frozenFood.png"
         alt=""
       />
       <p>Frozen Foods</p>
@@ -181,7 +181,7 @@ document.getElementById(
 
     <div class="seafood grid">
       <!-- <img class="icon milk" src="/Assets/fish.png" alt="" /> -->
-      <img class="icon milk" src="Assets/fish.png" alt="" />
+      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fish.png" alt="" />
 
       <p>Seafood</p>
       <!-- seafoodOutput seafoodWasteOutput -->
@@ -232,7 +232,7 @@ document.getElementById(
 
     <div class="fruitsAndVegetables grid">
       <!-- <img class="icon milk" src="/Assets/fruitAndVegetables.png" alt="" /> -->
-      <img class="icon milk" src="Assets/fruitAndVegetables.png" alt="" />
+      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fruitAndVegetables.png" alt="" />
       <p>Fruits & Vegetables</p>
 
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -282,7 +282,7 @@ document.getElementById(
 
     <div class="dairy grid">
       <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
-      <img class="icon milk" src="Assets/milk.png" alt="" />
+      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png" alt="" />
 
       <p>Dairy</p>
 
@@ -334,7 +334,7 @@ document.getElementById(
 
     <div class="meatAndPoultry grid">
       <!-- <img class="icon milk" src="/Assets/meat.png" alt="" /> -->
-      <img class="icon milk" src="Assets/meat.png" alt="" />
+      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/meat.png" alt="" />
 
       <p>Meat & Poultry</p>
 
@@ -386,7 +386,7 @@ document.getElementById(
 
     <div class="dryFood grid">
       <!-- <img class="icon milk invisible" src="/Assets/milk.png" alt="" /> -->
-      <img class="icon milk invisible" src="Assets/milk.png" alt="" />
+      <img class="icon milk invisible" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png" alt="" />
 
       <p>Dry foods and other products</p>
       <p class="slider sliderRev subinformation">% of store</p>
