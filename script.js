@@ -441,10 +441,15 @@ function makeChart() {
     },
     options: {
       scales: {
+        x: {
+          beginAtZero: true,
+        },
         y: {
           beginAtZero: true,
         },
       },
+      responsive: true,
+      maintainAspectRatio: false,
     },
   });
   TenYearChart = new Chart(ctx10, {
@@ -498,10 +503,15 @@ function makeChart() {
     },
     options: {
       scales: {
+        x: {
+          beginAtZero: true,
+        },
         y: {
           beginAtZero: true,
         },
       },
+      responsive: true,
+      maintainAspectRatio: false,
     },
   });
 }

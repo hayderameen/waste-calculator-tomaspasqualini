@@ -293,10 +293,12 @@ input {
   font-weight: lighter;
   line-height: 0px;
   margin-bottom: 12px;
+  font-size: 14px;
 }
 .metric {
   color: #404040;
   font-weight: bold;
+  font-size: 16px;
 }
 .upsale,
 .totalUpsale {
@@ -316,6 +318,7 @@ input {
 #myChart,
 #myChartTenYear {
   width: 100%;
+  min-height: 525px !important;
 }
 
 #myChart {
@@ -366,5 +369,9 @@ input {
   .metricResult {
     width: 50%;
     margin: 10px auto;
+  }
+  #myChart,
+  #myChartTenYear {
+    min-height: 300px !important;
   }
 }
