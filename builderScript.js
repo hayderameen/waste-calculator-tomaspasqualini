@@ -27,7 +27,7 @@ document.getElementById(
 
   <div class="main-calculator-section">
     <div class="packedMeals grid">
-      <img class="icon" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bread.png" alt="" />
+      <img class="icon" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bread.png" alt="Bread" />
 
       <p>Packed meals / Deli</p>
       <p class="slider sliderRev subinformation">% of total revenue</p>
