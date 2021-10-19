@@ -385,7 +385,6 @@ let currentYear = new Date().getFullYear() + 1;
 for (let i = 0; i < 10; i++) {
   labels10.push(currentYear + i);
 }
-console.log(labels10);
 
 let ctx = document.getElementById("myChart").getContext("2d");
 let ctx10 = document.getElementById("myChartTenYear").getContext("2d");
