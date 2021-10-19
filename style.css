@@ -86,6 +86,15 @@
   height: 15px;
   border-radius: 20px;
 }
+#dryFoods::-moz-range-thumb {
+  width: 0 !important;
+}
+#dryFoods::-webkit-slider-thumb {
+  width: 0 !important;
+}
+#dryFoods::-ms-thumb {
+  width: 0 !important;
+}
 
 #simulation_main_wrapper input[type="range"]:active::-moz-range-thumb {
   outline: none;
@@ -202,11 +211,12 @@
 .months {
   color: #492fc4;
   background-color: #f5f5f5;
-  margin-right: 15px;
+  border-radius: 10px 0 0 10px;
 }
 .years {
   color: #492fc4;
   background-color: #f5f5f5;
+  border-radius: 0 10px 10px 0;
 }
 .active_period_btn {
   background-color: #492fc4;
@@ -277,9 +287,14 @@ input {
 .img-container {
   height: 100%;
 }
-
+.metricTitle {
+  font-weight: lighter;
+  line-height: 0px;
+  margin-bottom: 12px;
+}
 .metric {
   color: #404040;
+  font-weight: bold;
 }
 .upsale,
 .totalUpsale {
@@ -341,6 +356,7 @@ input {
     font-size: 11px;
     line-height: 14px;
     margin-top: 0;
+    margin-bottom: 2px;
   }
   .period_btn {
     padding: 0.8rem 1.5rem;

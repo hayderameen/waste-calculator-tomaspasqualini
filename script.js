@@ -176,10 +176,22 @@ function totalWasteUserInput(e) {
   return totalWasteUserInputData;
 }
 
+totalRevenue.oninput = () => {
+  if (totalRevenue.value === "") return;
+  const value = parseFloat(totalRevenue.value.replace(/,/g, ""));
+  if (isNaN(value)) {
+    submitWarning.style.display = "block";
+    return;
+  } else {
+    submitWarning.style.display = "none";
+  }
+  totalRevenue.value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // To avoid non characters and parsed
+};
+
 function calc() {
   //   Empty Arr before recalculating
   calculatedCategoryRevenueArr = [];
-  let totalRevenueNum = parseInt(totalRevenue.value);
+  let totalRevenueNum = parseFloat(totalRevenue.value.replace(/,/g, ""));
 
   for (let i = 0; i < totalRevenueSliderArr.length; i++) {
     calculatedCategoryRevenueArr.push(
@@ -200,6 +212,10 @@ function calc() {
 function greyOutSimulation(arr) {
   let reducer = (x, y) => x + y;
   let reducedArr = arr.reduce(reducer);
+
+  const dryFoodsOffsetValue = 100 - reducedArr;
+  dryFoodInputSlider.value = dryFoodsOffsetValue;
+  dryFoodsOutput.innerText = dryFoodsOffsetValue;
 
   if (reducedArr > 100) {
     document.querySelector(".simulatebtn").style.display = "none";
@@ -475,7 +491,7 @@ function makeChart() {
           ],
           borderColor: ["#47D71D"],
           fill: true,
-          backgroundColor: ["rgba(80,190,67,0.4)"],
+          backgroundColor: ["rgba(80,190,67,0.2)"],
           borderWidth: 1,
         },
       ],
