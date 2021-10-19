@@ -15,7 +15,7 @@ document.getElementById(
       type="text"
       id="totalRevenue"
       name="totalRevenue"
-      value="50000000000"
+      value="50,000,000,000"
     />
     <!-- <input type="submit" id="submit" /> -->
 
