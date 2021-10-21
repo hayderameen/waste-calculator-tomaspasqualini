@@ -1,33 +1,93 @@
 document.getElementById(
   "wasteless-div"
-).innerHTML += `<div id="simulation_main_wrapper">
+).innerHTML += `    <div id="simulation_main_wrapper">
 <!-- wasteless simulations -->
 <div id="simulation-wrapper" class="simulation-wrapper">
   <div class="header-section">
     <p style="font-weight: bold">
-      Whats your Total Annual Revenue(gross)?
+      What is your Total Annual Revenue (Gross)?
     </p>
     <p class="submitWarning">Please enter only numbers</p>
     <!-- change to a number input -->
     <span class="dollar_sign">$</span>
-   
+
     <input
       type="text"
       id="totalRevenue"
       name="totalRevenue"
       value="50,000,000,000"
+      onClick="this.setSelectionRange(0, this.value.length)" 
     />
     <!-- <input type="submit" id="submit" /> -->
 
     <p style="font-weight: bold">
-      Out of the total revenue, how much each of the following represent
-      and what's their waste %?
+      What is the size and waste for each category?
     </p>
   </div>
 
   <div class="main-calculator-section">
+    <div class="meatAndPoultry grid">
+      <!-- <img class="icon milk" src="/Assets/meat.png" alt="" /> -->
+      <img
+        class="icon milk"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/meat.png"
+        alt=""
+      />
+
+      <p>Meat & Poultry</p>
+
+      <p class="slider sliderRev subinformation">% of total revenue</p>
+      <input
+        type="range"
+        min="0"
+        max="30"
+        value="10"
+        step="0.5"
+        class="slider sliderRev meatAndPoultry"
+        id="meatAndPoultry"
+        name="meatAndPoultry"
+        oninput="meatAndPoultryOutput.value=meatAndPoultry.value"
+        onchange="totalRevenueSliderListenerFunc(this.value)"
+      />
+      <output
+        id="meatAndPoultryOutput"
+        name="meatAndPoultryOutput"
+        for="meatAndPoultryOutput.value"
+        class="meatAndPoultryOutput"
+        >10</output
+      ><span>%</span>
+
+      <p class="slider subinformation">Waste %</p>
+
+      <form action="">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="6"
+          step="0.5"
+          class="slider meatAndPoultryWaste"
+          id="meatAndPoultryWaste"
+          name="meatAndPoultryWaste"
+          oninput="meatAndPoultryWasteOutput.value=meatAndPoultryWaste.value"
+          onchange="totalWasteUserInput(this.value)"
+        />
+        <output
+          id="meatAndPoultryWasteOutput"
+          name="meatAndPoultryWasteOutput"
+          for="meatAndPoultryWasteOutput.value"
+          class="meatAndPoultryWasteOutput"
+          >6</output
+        ><span>%</span>
+      </form>
+    </div>
+
     <div class="packedMeals grid">
-      <img class="icon" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bread.png" alt="Bread" />
+      <img
+        class="icon"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bread.png"
+        alt=""
+      />
 
       <p>Packed meals / Deli</p>
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -75,9 +135,178 @@ document.getElementById(
       </form>
     </div>
 
+    <div class="fruitsAndVegetables grid">
+      <!-- <img class="icon milk" src="/Assets/fruitAndVegetables.png" alt="" /> -->
+      <img
+        class="icon milk"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fruitAndVegetables.png"
+        alt=""
+      />
+      <p>Fruits & Vegetables</p>
+
+      <p class="slider sliderRev subinformation">% of total revenue</p>
+      <input
+        type="range"
+        min="0"
+        max="30"
+        value="14"
+        step="0.5"
+        class="slider sliderRev fruitAndVegetables"
+        id="fruitAndVegetables"
+        name="fruitAndVegetables"
+        oninput="fruitAndVegetablesOutput.value=fruitAndVegetables.value"
+        onchange="totalRevenueSliderListenerFunc(this.value)"
+      />
+      <output
+        id="fruitAndVegetablesOutput"
+        name="fruitAndVegetablesOutput"
+        for="fruitAndVegetablesOutput.value"
+        class="fruitAndVegetablesOutput"
+        >14</output
+      ><span>%</span>
+
+      <p class="slider subinformation">Waste %</p>
+      <form action="">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="14"
+          step="0.5"
+          class="slider fruitAndVegetablesWaste"
+          id="fruitAndVegetablesWaste"
+          name="fruitAndVegetablesWaste"
+          oninput="fruitAndVegetablesWasteOutput.value=fruitAndVegetablesWaste.value"
+          onchange="totalWasteUserInput(this.value)"
+        />
+        <output
+          id="fruitAndVegetablesWasteOutput"
+          name="fruitAndVegetablesWasteOutput"
+          for="fruitAndVegetablesWasteOutput.value"
+          class="fruitAndVegetablesWasteOutput"
+          >14</output
+        ><span>%</span>
+      </form>
+    </div>
+
+    <div class="seafood grid">
+      <!-- <img class="icon milk" src="/Assets/fish.png" alt="" /> -->
+      <img
+        class="icon milk"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fish.png"
+        alt=""
+      />
+
+      <p>Seafood</p>
+      <!-- seafoodOutput seafoodWasteOutput -->
+      <p class="slider sliderRev subinformation">% of total revenue</p>
+      <input
+        type="range"
+        min="0"
+        max="30"
+        value="1"
+        step="0.5"
+        class="slider sliderRev seafood"
+        id="seafood"
+        name="seafood"
+        oninput="seafoodOutput.value=seafood.value"
+        onchange="totalRevenueSliderListenerFunc(this.value)"
+      />
+      <output
+        id="seafoodOutput"
+        name="seafoodOutput"
+        for="seafoodOutput.value"
+        class="seafoodOutput"
+        >1</output
+      ><span>%</span>
+
+      <p class="slider subinformation">Waste %</p>
+      <form action="">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="12"
+          step="0.5"
+          class="slider seafoodWaste"
+          id="seafoodWaste"
+          name="seafoodWaste"
+          oninput="seafoodWasteOutput.value=seafoodWaste.value"
+          onchange="totalWasteUserInput(this.value)"
+        />
+        <output
+          id="seafoodWasteOutput"
+          name="seafoodWasteOutput"
+          for="seafoodWasteOutput"
+          class="seafoodWasteOutput"
+          >12</output
+        ><span>%</span>
+      </form>
+    </div>
+
+    <div class="dairy grid">
+      <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
+      <img
+        class="icon milk"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
+        alt=""
+      />
+
+      <p>Dairy</p>
+
+      <p class="slider sliderRev subinformation">% of total revenue</p>
+      <input
+        type="range"
+        min="0"
+        max="30"
+        value="10"
+        step="0.5"
+        class="slider sliderRev dairy"
+        id="dairy"
+        name="dairy"
+        oninput="dairyOutput.value=dairy.value"
+        onchange="totalRevenueSliderListenerFunc(this.value)"
+      />
+
+      <output
+        id="dairyOutput"
+        name="dairyOutput"
+        for="dairyOutput.value"
+        class="dairyOutput"
+        >10</output
+      ><span>%</span>
+
+      <p class="slider subinformation">Waste %</p>
+      <form action="">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="5"
+          step="0.5"
+          class="slider dairyWaste"
+          id="dairyWaste"
+          name="dairyWaste"
+          oninput="dairyWasteOutput.value=dairyWaste.value"
+          onchange="totalWasteUserInput(this.value)"
+        />
+        <output
+          id="dairyWasteOutput"
+          name="dairyWasteOutput"
+          for="dairyWasteOutput.value"
+          class="dairyWasteOutput"
+          >5</output
+        ><span>%</span>
+      </form>
+    </div>
+
     <div class="bakery grid">
       <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
-      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bakery.png" alt="Bakery" />
+      <img
+        class="icon milk"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/bakery.png"
+        alt="Bakery"
+      />
       <p>Bakery</p>
 
       <p class="slider sliderRev subinformation">% of total revenue</p>
@@ -126,7 +355,6 @@ document.getElementById(
     </div>
 
     <div class="frozenFoods grid">
-      <!-- <img class="icon milk" src="/Assets/frozenFood.png" alt="" /> -->
       <img
         class="icon milk frozenfoods"
         src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/frozenFood.png"
@@ -179,216 +407,14 @@ document.getElementById(
       </form>
     </div>
 
-    <div class="seafood grid">
-      <!-- <img class="icon milk" src="/Assets/fish.png" alt="" /> -->
-      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fish.png" alt="" />
-
-      <p>Seafood</p>
-      <!-- seafoodOutput seafoodWasteOutput -->
-      <p class="slider sliderRev subinformation">% of total revenue</p>
-      <input
-        type="range"
-        min="0"
-        max="30"
-        value="1"
-        step="0.5"
-        class="slider sliderRev seafood"
-        id="seafood"
-        name="seafood"
-        oninput="seafoodOutput.value=seafood.value"
-        onchange="totalRevenueSliderListenerFunc(this.value)"
-      />
-      <output
-        id="seafoodOutput"
-        name="seafoodOutput"
-        for="seafoodOutput.value"
-        class="seafoodOutput"
-        >1</output
-      ><span>%</span>
-
-      <p class="slider subinformation">Waste %</p>
-      <form action="">
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="12"
-          step="0.5"
-          class="slider seafoodWaste"
-          id="seafoodWaste"
-          name="seafoodWaste"
-          oninput="seafoodWasteOutput.value=seafoodWaste.value"
-          onchange="totalWasteUserInput(this.value)"
-        />
-        <output
-          id="seafoodWasteOutput"
-          name="seafoodWasteOutput"
-          for="seafoodWasteOutput"
-          class="seafoodWasteOutput"
-          >12</output
-        ><span>%</span>
-      </form>
-    </div>
-
-    <div class="fruitsAndVegetables grid">
-      <!-- <img class="icon milk" src="/Assets/fruitAndVegetables.png" alt="" /> -->
-      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/fruitAndVegetables.png" alt="" />
-      <p>Fruits & Vegetables</p>
-
-      <p class="slider sliderRev subinformation">% of total revenue</p>
-      <input
-        type="range"
-        min="0"
-        max="30"
-        value="14"
-        step="0.5"
-        class="slider sliderRev fruitAndVegetables"
-        id="fruitAndVegetables"
-        name="fruitAndVegetables"
-        oninput="fruitAndVegetablesOutput.value=fruitAndVegetables.value"
-        onchange="totalRevenueSliderListenerFunc(this.value)"
-      />
-      <output
-        id="fruitAndVegetablesOutput"
-        name="fruitAndVegetablesOutput"
-        for="fruitAndVegetablesOutput.value"
-        class="fruitAndVegetablesOutput"
-        >14</output
-      ><span>%</span>
-
-      <p class="slider subinformation">Waste %</p>
-      <form action="">
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="14"
-          step="0.5"
-          class="slider fruitAndVegetablesWaste"
-          id="fruitAndVegetablesWaste"
-          name="fruitAndVegetablesWaste"
-          oninput="fruitAndVegetablesWasteOutput.value=fruitAndVegetablesWaste.value"
-          onchange="totalWasteUserInput(this.value)"
-        />
-        <output
-          id="fruitAndVegetablesWasteOutput"
-          name="fruitAndVegetablesWasteOutput"
-          for="fruitAndVegetablesWasteOutput.value"
-          class="fruitAndVegetablesWasteOutput"
-          >14</output
-        ><span>%</span>
-      </form>
-    </div>
-
-    <div class="dairy grid">
-      <!-- <img class="icon milk" src="/Assets/milk.png" alt="" /> -->
-      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png" alt="" />
-
-      <p>Dairy</p>
-
-      <p class="slider sliderRev subinformation">% of total revenue</p>
-      <input
-        type="range"
-        min="0"
-        max="30"
-        value="10"
-        step="0.5"
-        class="slider sliderRev dairy"
-        id="dairy"
-        name="dairy"
-        oninput="dairyOutput.value=dairy.value"
-        onchange="totalRevenueSliderListenerFunc(this.value)"
-      />
-
-      <output
-        id="dairyOutput"
-        name="dairyOutput"
-        for="dairyOutput.value"
-        class="dairyOutput"
-        >10</output
-      ><span>%</span>
-
-      <p class="slider subinformation">Waste %</p>
-      <form action="">
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="5"
-          step="0.5"
-          class="slider dairyWaste"
-          id="dairyWaste"
-          name="dairyWaste"
-          oninput="dairyWasteOutput.value=dairyWaste.value"
-          onchange="totalWasteUserInput(this.value)"
-        />
-        <output
-          id="dairyWasteOutput"
-          name="dairyWasteOutput"
-          for="dairyWasteOutput.value"
-          class="dairyWasteOutput"
-          >5</output
-        ><span>%</span>
-      </form>
-    </div>
-
-    <div class="meatAndPoultry grid">
-      <!-- <img class="icon milk" src="/Assets/meat.png" alt="" /> -->
-      <img class="icon milk" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/meat.png" alt="" />
-
-      <p>Meat & Poultry</p>
-
-      <p class="slider sliderRev subinformation">% of total revenue</p>
-      <input
-        type="range"
-        min="0"
-        max="30"
-        value="10"
-        step="0.5"
-        class="slider sliderRev meatAndPoultry"
-        id="meatAndPoultry"
-        name="meatAndPoultry"
-        oninput="meatAndPoultryOutput.value=meatAndPoultry.value"
-        onchange="totalRevenueSliderListenerFunc(this.value)"
-      />
-      <output
-        id="meatAndPoultryOutput"
-        name="meatAndPoultryOutput"
-        for="meatAndPoultryOutput.value"
-        class="meatAndPoultryOutput"
-        >10</output
-      ><span>%</span>
-
-      <p class="slider subinformation">Waste %</p>
-
-      <form action="">
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="6"
-          step="0.5"
-          class="slider meatAndPoultryWaste"
-          id="meatAndPoultryWaste"
-          name="meatAndPoultryWaste"
-          oninput="meatAndPoultryWasteOutput.value=meatAndPoultryWaste.value"
-          onchange="totalWasteUserInput(this.value)"
-        />
-        <output
-          id="meatAndPoultryWasteOutput"
-          name="meatAndPoultryWasteOutput"
-          for="meatAndPoultryWasteOutput.value"
-          class="meatAndPoultryWasteOutput"
-          >6</output
-        ><span>%</span>
-      </form>
-    </div>
-
     <div class="dryFood grid">
-      <!-- <img class="icon milk invisible" src="/Assets/milk.png" alt="" /> -->
-      <img class="icon milk invisible" src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png" alt="" />
+      <img
+        class="icon milk invisible"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/milk.png"
+        alt=""
+      />
 
-      <p>Dry foods and other products</p>
+      <p>Dry foods & all other products</p>
       <p class="slider sliderRev subinformation">% of store</p>
       <input
         type="range"
@@ -411,7 +437,7 @@ document.getElementById(
       ><span>%</span>
 
       <p class="revenueError">
-        The sum of % of total revenue cannot exceed 100% please adjust
+        The sum of % of total revenue cannot exceed 100%. Please adjust!
       </p>
     </div>
   </div>
@@ -419,14 +445,13 @@ document.getElementById(
 
 <div class="simulatebtn">
   <button onClick="calc()" class="simulateBtn submit" id="simulateBtn">
-    SIMULATE
+    CALCULATE
   </button>
 </div>
 <div class="results-container">
   <div class="resultsTitle">
     <h4>
-      This is what you should expect after implementing Wasteless Store
-      solution:
+      This is what you should expect after implementing STORE:
     </h4>
     <div class="resultsBtns">
       <p class="subinformation">Show results for:</p>
@@ -439,17 +464,14 @@ document.getElementById(
       <button onClick="TenYearGraph()" class="years period_btn">
         10 Years
       </button>
-      <!-- <button onClick="updateChart()" class="btn years">updateChart</button> -->
     </div>
   </div>
 
   <div class="chart">
-    <canvas id="myChart" width="800" height="450"></canvas>
+    <canvas id="myChart" style="min-height: 300px"></canvas>
     <canvas
       id="myChartTenYear"
-      width="800"
-      height="450"
-      style="display: none"
+      style="display: none; min-height: 300px"
     ></canvas>
   </div>
   <div class="metric_results_container">
