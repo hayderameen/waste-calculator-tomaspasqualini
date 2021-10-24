@@ -1,6 +1,6 @@
 document.getElementById(
   "wasteless-div"
-).innerHTML += `    <div id="simulation_main_wrapper">
+).innerHTML += `<div id="simulation_main_wrapper">
 <!-- wasteless simulations -->
 <div id="simulation-wrapper" class="simulation-wrapper">
   <div class="header-section">
@@ -27,14 +27,13 @@ document.getElementById(
 
   <div class="main-calculator-section">
     <div class="meatAndPoultry grid">
-      <!-- <img class="icon milk" src="/Assets/meat.png" alt="" /> -->
       <img
         class="icon milk"
         src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/meat.png"
         alt=""
       />
 
-      <p>Meat & Poultry</p>
+      <p>Meat</p>
 
       <p class="slider sliderRev subinformation">% of total revenue</p>
       <input
@@ -54,7 +53,7 @@ document.getElementById(
         name="meatAndPoultryOutput"
         for="meatAndPoultryOutput.value"
         class="meatAndPoultryOutput"
-        >10</output
+        >6</output
       ><span>%</span>
 
       <p class="slider subinformation">Waste %</p>
@@ -89,7 +88,7 @@ document.getElementById(
         alt=""
       />
 
-      <p>Packed meals / Deli</p>
+      <p>Packed meals & Deli</p>
       <p class="slider sliderRev subinformation">% of total revenue</p>
       <input
         type="range"
@@ -131,6 +130,61 @@ document.getElementById(
           for="packedMealsOutputWaste.value"
           class="packedMeals"
           >10</output
+        ><span>%</span>
+      </form>
+    </div>
+
+    <div class="Poultry grid">
+      <img
+        class="icon milk"
+        src="https://hayderameen.github.io/waste-calculator-tomaspasqualini/Assets/poultry.png"
+        alt="poultry icon wasteless"
+      />
+
+      <p>Poultry</p>
+
+      <p class="slider sliderRev subinformation">% of total revenue</p>
+      <input
+        type="range"
+        min="0"
+        max="30"
+        value="10"
+        step="0.5"
+        class="slider sliderRev Poultry"
+        id="Poultry"
+        name="Poultry"
+        oninput="PoultryOutput.value=Poultry.value"
+        onchange="totalRevenueSliderListenerFunc(this.value)"
+      />
+      <output
+        id="PoultryOutput"
+        name="PoultryOutput"
+        for="PoultryOutput.value"
+        class="PoultryOutput"
+        >4</output
+      ><span>%</span>
+
+      <p class="slider subinformation">Waste %</p>
+
+      <form action="">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="6"
+          step="0.5"
+          class="slider PoultryWaste"
+          id="PoultryWaste"
+          name="PoultryWaste"
+          oninput="PoultryWasteOutput.value=PoultryWaste.value"
+          onchange="totalWasteUserInput(this.value)"
+        />
+        <output
+          id="PoultryWasteOutput"
+          name="PoultryWasteOutput"
+          for="PoultryWasteOutput.value"
+          class="PoultryWasteOutput"
+          >4</output
         ><span>%</span>
       </form>
     </div>
@@ -440,14 +494,17 @@ document.getElementById(
         The sum of % of total revenue cannot exceed 100%. Please adjust!
       </p>
     </div>
+
+  <div class="simulatebtn">
+    <button onClick="calc()" class="simulateBtn submit" id="simulateBtn">
+      CALCULATE
+    </button>
   </div>
+  </div>
+
 </div>
 
-<div class="simulatebtn">
-  <button onClick="calc()" class="simulateBtn submit" id="simulateBtn">
-    CALCULATE
-  </button>
-</div>
+
 <div class="results-container">
   <div class="resultsTitle">
     <h4>

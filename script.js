@@ -1,11 +1,14 @@
 // Fixed Value Variables
-let avgCostKgFixedAverageArr = [10, 6, 1.2, 5, 3, 12, 4];
-// Column b in spreadsheet
-let userInputPercentages = [0.08, 0.05, 0.14, 0.1, 0.06, 0.01, 0.1];
-let fixedKgAvg = [11, 11, 1.8, 23, 1.22, 8, 4];
-// WASTE REDUCTION FIXED VALUES
-let wasteReductionValArr = [0.5, 0.5, 0.24, 0.5, 0.09, 0.5, 0.5];
-let wastePercentages = [0.1, 0.01, 0.14, 0.06, 0.15, 0.12, 0.05];
+let avgCostKgFixedAverageArr = [10, 6, 1.2, 5, 3, 12, 4, 3];
+
+// Defualt revenue distribution (user input) - added poultry
+let userInputPercentages = [0.08, 0.05, 0.14, 0.06, 0.06, 0.01, 0.1, 0.4];
+// Default waste percentages per category - added poultry
+let wastePercentages = [0.1, 0.01, 0.14, 0.06, 0.15, 0.12, 0.05, 0.04];
+let fixedKgAvg = [11, 11, 1.8, 27, 1.22, 8, 4, 7];
+// WASTE REDUCTION FIXED VALUES - added poultry
+let wasteReductionValArr = [0.5, 0.5, 0.24, 0.5, 0.09, 0.5, 0.5, 0.5];
+
 
 //   HTML elements
 // Get Total Revenue
@@ -20,16 +23,14 @@ let packedMealWaste = document.querySelector("#packedMealsOutputWaste");
 let frozenFoodRevenue = document.querySelector("#frozenFoodOutput");
 let frozenFoodWaste = document.querySelector("#frozenFoodOutputWaste");
 // fruits & vegetables
-let fruitsAndVegetableRevenue = document.querySelector(
-  "#fruitAndVegetablesOutput"
-);
-let fruitsAndVegetableWaste = document.querySelector(
-  "#fruitAndVegetablesWasteOutput"
-);
+let fruitsAndVegetableRevenue = document.querySelector("#fruitAndVegetablesOutput");
+let fruitsAndVegetableWaste = document.querySelector("#fruitAndVegetablesWasteOutput");
 // Meat & Poultry
 let meatAndPoultryRevenue = document.querySelector("#meatAndPoultryOutput");
 let meatAndPoultryWaste = document.querySelector("#meatAndPoultryWasteOutput");
-let submitWarning = document.querySelector(".submitWarning");
+// Poultry ADDED!
+let PoultryRevenue = document.querySelector("#PoultryOutput");
+let PoultryWaste = document.querySelector("#PoultryWasteOutput");
 // Bakery
 let bakeryRevenue = document.querySelector("#bakeryOutput");
 let bakeryWaste = document.querySelector("#bakeryWasteOutput");
@@ -49,15 +50,17 @@ let revenueError = document.querySelector(".revenueError");
 // Get revenue number
 var btn = document.querySelector(".submit");
 
+let submitWarning = document.querySelector(".submitWarning");
+
 //   RESULTS ELEMENTS
 let totalEconomicValue = document.querySelector(".economicValue");
 let totalRevenueUpsale = document.querySelector(".totalUpsale");
 let co2eReduced = document.querySelector(".co2reduced");
 let wasteReductionValue = document.querySelector(".wasteReductionValue");
 
-// VALUE HOLDERS
-let totalRevenueSliderArr = [8, 6, 5, 1, 14, 10, 10];
-let totalWasteUserInputData = [10, 1, 14, 6, 15, 12, 5];
+// VALUE HOLDERS - added final value for poultry
+let totalRevenueSliderArr = [8, 5, 14, 6, 6, 1, 10, 4];
+let totalWasteUserInputData = [10, 1, 14, 6, 15, 12, 5, 4];
 let calculatedCategoryRevenueArr = [];
 let calculatedCategoryWasteArr = [];
 let calculatedRevenueUpsale = [];
@@ -145,6 +148,10 @@ function totalRevenueSliderListenerFunc(e) {
   totalRevenueSliderArr[3] = parseInt(
     document.getElementById("meatAndPoultryOutput").innerHTML
   );
+  //ADDED NEW
+  totalRevenueSliderArr[7] = parseInt(
+    document.getElementById("PoultryOutput").innerHTML
+  );
 
   // Getting the Sum of the Array
   greyOutSimulation(totalRevenueSliderArr);
@@ -171,6 +178,10 @@ function totalWasteUserInput(e) {
   );
   totalWasteUserInputData[3] = parseInt(
     document.getElementById("meatAndPoultryWasteOutput").innerHTML
+  );
+  //ADDED POULTRY
+  totalWasteUserInputData[7] = parseInt(
+    document.getElementById("PoultryWasteOutput").innerHTML
   );
 
   return totalWasteUserInputData;
@@ -318,8 +329,8 @@ function calculateWasteSavings(array1, array2) {
 }
 
 function getTotalCO2(co2s) {
-  let AvgCostPerKG = [10, 6, 1.2, 5, 3, 12, 4];
-  let fixedestAvgkgco2 = [11, 11, 1.8, 23, 1.22, 8, 4];
+  let AvgCostPerKG = [10, 6, 1.2, 5, 3, 12, 4, 3]; //added poultry
+  let fixedestAvgkgco2 = [11, 11, 1.8, 27, 1.22, 8, 4, 7]; //added poultry
 
   let accumulatedCo2kg = 0;
 
