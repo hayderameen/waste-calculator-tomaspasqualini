@@ -355,7 +355,10 @@ input {
   }
 
   .simulatebtn {
-    margin:-2em auto;
+    margin:-2em auto 0;
+  }
+  .simulation-wrapper{
+    margin: 0 auto 1em
   }
 
   .metricTitle,
