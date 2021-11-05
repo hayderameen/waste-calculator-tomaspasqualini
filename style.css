@@ -13,7 +13,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 2em;
   padding: 20px 30px;
   border-radius: 10px;
 }
@@ -356,9 +356,6 @@ input {
 
   .simulatebtn {
     margin:-2em auto 0;
-  }
-  .simulation-wrapper{
-    margin: 0 auto 1em
   }
 
   .metricTitle,
