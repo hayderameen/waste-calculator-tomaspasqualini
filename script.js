@@ -209,6 +209,7 @@ function calc() {
       totalRevenueNum * (totalRevenueSliderArr[i] / 100)
     );
   }
+  totalWasteUserInput();
 
   calculateRevenueUpsale(calculatedCategoryRevenueArr);
   calculateWasteSavings(calculatedCategoryRevenueArr, totalWasteUserInputData);
