@@ -202,6 +202,8 @@ totalRevenue.oninput = () => {
 function calc() {
   //   Empty Arr before recalculating
   calculatedCategoryRevenueArr = [];
+  resultsArr = [];
+  
   let totalRevenueNum = parseFloat(totalRevenue.value.replace(/,/g, ""));
 
   for (let i = 0; i < totalRevenueSliderArr.length; i++) {
