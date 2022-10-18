@@ -22,7 +22,8 @@
 }
 
 .header-section {
-  width: 100%;
+  /* width: 100%; */
+  position:relative;
 }
 
 #simulation_main_wrapper input[type="range"] {
@@ -142,7 +143,7 @@
 .dollar_sign {
   font-size: 25px;
   position: absolute;
-  margin: 26px 5px;
+  margin: 22px 5px;
   color: #492fc3;
 }
 
@@ -158,8 +159,9 @@
   cursor: text;
   min-width: 290px;
   max-width: 90%;
-  text-align: left;
+  text-align: center;
   color: #492fc3;
+
 }
 #totalRevenue:focus {
   /* outline: 2px solid #47d71d; */
