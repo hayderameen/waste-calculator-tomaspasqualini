@@ -15,6 +15,7 @@ document.getElementById(
       type="text"
       id="totalRevenue"
       name="totalRevenue"
+      maxlength="20"
       value="50,000,000,000"
       onClick="this.setSelectionRange(0, this.value.length)" 
     />
