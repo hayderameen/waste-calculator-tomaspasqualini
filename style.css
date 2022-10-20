@@ -142,9 +142,10 @@
 }
 .dollar_sign {
   font-size: 25px;
-  position: absolute;
+  position: relative;
   margin: 22px 5px;
   color: #492fc3;
+  display:none;
 }
 
 #totalRevenue {
