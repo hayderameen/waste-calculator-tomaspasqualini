@@ -7,9 +7,10 @@ document.getElementById(
     <p style="font-weight: bold">
       What is your Total Annual Revenue (Gross)?
     </p>
+    <span class="dollar_sign">$</span>
     <p class="submitWarning">Please enter only numbers</p>
     <!-- change to a number input -->
-    <span class="dollar_sign">$</span>
+    
 
     <input
       type="text"
