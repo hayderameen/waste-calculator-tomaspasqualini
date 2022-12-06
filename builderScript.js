@@ -27,7 +27,7 @@ document.getElementById(
     </p>
   </div>
 
-  <div class="main-calculator-section">
+  <div class="main-calculator-section" style="background: white;">
     <div class="meatAndPoultry grid">
       <img
         class="icon milk"
@@ -498,22 +498,54 @@ document.getElementById(
     </div>
 
   <div class="simulatebtn">
-    <button onClick="calc()" class="simulateBtn submit" id="simulateBtn">
-      CALCULATE
-    </button>
+    <test>
+      <button onClick="show_report_form()" class="simulateBtn submit" id="simulateBtn">
+        CALCULATE
+      </button>
+    </test>
+    
   </div>
   </div>
 
 </div>
 
+<div class="send-report-form" id="te-send-report-form" style="display: none;">
+  <div class="div-block-13">
+    <h1 id="contactUs" class="heading-3">We will send you the report,<br> prepared especially for you 🚀</h1>
+    <div class="text-block-12-te te-mt-30">The business case is calculated based on your actual<br>sales and waste performance, to show you the<br>improvement you can achieve in your markets.</div>
+  </div>
+  <div class="div-block-14">
+    <div class="form-block w-form">
+      <form action="#" id="te-send-report-form" onSubmit="return submitCalcForm(event);">
+        <div class="te-mt-60 te-mb-30 form-instruction">Please fill out the following fields:</div>
+        <p>
+            <label for="te-name">Name</label>
+            <input type="text" name="name" id="te-name" required="true"/>
+        </p>
+        <p>
+            <label for="te-email">email</label>
+            <input type="email" name="email" id="te-email" required="true"/>
+        </p>
+        <p>
+          <label for="te-company">company</label>
+          <input type="text" name="company" id="te-company" required="true"/>
+        </p>
 
+        <div class="send-report-btn-section">
+          <input type="submit" value="Send me the report" name="send_report" id="send-report-btn">
+        </div>
+    </form>
+    
+    </div>
+  </div>
+</div>
 <div class="results-container">
   <div class="resultsTitle">
-    <h4>
-      This is what you should expect after implementing STORE:
+    <h4 style="color:#492fc3; display: flex; align-items: center; gap: 3px;" id="te-result-section">
+     <img src="Assets/loader.gif" id="processing-image" width="35px" alt="">We are building a full business case report for you. Please wait...
     </h4>
     <div class="resultsBtns">
-      <p class="subinformation">Show results for:</p>
+      <p class="subinformation" style="color:#000000;">This is what you should expect after implementing Wasteless Store Solution:</p>
       <button
         onClick="OneYearGraph()"
         class="months period_btn active_period_btn"
