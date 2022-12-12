@@ -5,13 +5,11 @@
 
 html {
     font-family: sans-serif;
-    padding: 20px;
-    font-weight: 100;
     -webkit-font-smoothing: antialiased;
 }
 
 .send-report-form p {
-    width: 350px;
+    width: 100%;
     position: relative;
     margin-bottom: 10px;
 }
@@ -32,11 +30,11 @@ html {
     padding-left: 5px;
 }
 
-span:last-of-type label {
+.send-report-form span:last-of-type label {
     left: 11px;
 }
 
-input {
+.send-report-form input {
     width: 100%;
     box-sizing: border-box;
     padding: 5px 10px;
@@ -60,7 +58,6 @@ input {
     letter-spacing: 0em;
     text-align: center;
     color: #FFFFFF;
-    margin-right: -55px;
     margin-top: 50px;
     
 }
@@ -68,7 +65,7 @@ input {
     display: flex;
     justify-content: center;
 }
-label {
+.send-report-form label {
     position: absolute;
     left: 6px;
     top: 12px;
@@ -76,9 +73,10 @@ label {
     transition: all 125ms;
     color: #666;
     padding: 0 5px;
+    line-height: 12px;
 }
 
-.active label {
+.send-report-form .active label {
     font-size: 10px;
     text-transform: uppercase;
     top: -5px;
@@ -105,7 +103,8 @@ label {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    background-color: transparent;
+    background-color: white;
+    border-radius:10px;
     font-family: Roboto, sans-serif;
   }
   .div-block-13 {
@@ -131,7 +130,7 @@ label {
     text-align: center;
 }
 .heading-3 {
-    margin-top: 10px;
+    margin: 10px 10px 0px 10px;
     color: #4a30c5;
     text-align: center;
 }
@@ -175,7 +174,7 @@ label {
     position: relative;
     right: auto;
     display: block;
-    width: 50%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     padding-right: 0px;
@@ -224,8 +223,10 @@ label {
         margin-bottom: 50px;
         padding-bottom: 50px;
     }
-    .heading-3 {
-        color: #4a30c3;
-        font-size: 40px;
+    .heading-3 {        
+    color: #4a30c3;
+    font-size: 30px;
+    padding: 0px 10px;
+    line-height: 35px;
     }
 }

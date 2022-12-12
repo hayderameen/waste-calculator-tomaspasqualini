@@ -43,13 +43,13 @@ $file_name = generateRandomString(50).'_full_report.pdf';
 file_put_contents('pdf-files/'.$file_name, $output);
 
 $smtpUsername = 'hello@wasteless.co'; //add server mail address here
-$smtpPassword = 'hellooded'; //add server mail address password here
+$smtpPassword = 'hellooded'; //add server mail address pw here
 $emailFrom = 'hello@wasteless.com'; //from address
 $emailFromName= 'Wasteless Team'; //from name
 $emailTo = $_POST['te_email'];
 $emailToName = $_POST['te_name'];
 $emailToCompany = $_POST['te_company'];
-$emailSubject = "Wasteless Impact Report for: ".$emailToCompany;
+$emailSubject = "Impact Simulation Report for ".$emailToCompany;
 $phpmailer = new PHPMailer();
 $phpmailer->isSMTP();
 $phpmailer->Host = 'smtp.gmail.com'; //'smtp.mailtrap.io';
