@@ -75,7 +75,6 @@ let totalRevenueUpsaleInt;
 let totalWasteReductionValueInt;
 let oneYearChart;
 let TenYearChart;
-
 // Util
 function OneYearGraph() {
   document.getElementById("myChart").style.display = "block";
@@ -540,7 +539,7 @@ function makeChart() {
       animation: {
         onComplete: function () {
 
-          document.getElementById('te-result-section').innerHTML = '<img src="Assets/loader.gif" id="processing-image" width="35px" alt=""> Creating full report for you! Please wait...';
+          document.getElementById('te-result-section').innerHTML = '<img src="https://getstoree.000webhostapp.com/loader.gif" id="processing-image" width="35px" alt=""> We are sending you full report through email! please wait...';
           te_dec_graph_image = TenYearChart.toBase64Image();
          
           let te_name = localStorage.getItem("username");
@@ -621,7 +620,7 @@ function makeChart() {
             formData.append('te_frozenFoodOutputWaste',te_frozenFoodOutputWaste);
             formData.append('te_dryFoodsOutput',te_dryFoodsOutput);
             
-            fetch("backend-sendmail.php", {
+            fetch("https://getstoree.000webhostapp.com/backend-sendmail.php", {
               method: "POST", // Adding method type
               headers: {
                 'Accept': 'application/json'
@@ -631,7 +630,7 @@ function makeChart() {
             .then(response => response.json()) // Converting to JSON
             .then(json => {
               console.log(json);
-              document.getElementById('te-result-section').innerHTML = '<img src="Assets/done.png" id="processing-image" width="35px" alt=""> Done! You will get an email with the full business case report.';
+              document.getElementById('te-result-section').innerHTML = '<img src="https://getstoree.000webhostapp.com/done.png" id="processing-image" width="35px" alt=""> Thank you! you will get an email with the full business case report.';
             });      
         },
       },
