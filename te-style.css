@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -136,17 +138,15 @@ html {
 }
 .text-block-12-te {
     max-width: 420px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     background-color: transparent;
-    color: #000000;
+    color: #607d8b;
     text-align: center;
-    font-family: Inter;
     font-size: 20px;
     font-weight: 400;
     line-height: 31px;
-    letter-spacing: 0em;
-
+    margin-bottom: -52px;
+    padding: 0 15px;
 }
 .div-block-14 {
     display: -webkit-box;
