@@ -65,9 +65,9 @@ $phpmailer->Subject = $emailSubject;
 $phpmailer->AddAttachment('pdf-files/'.$file_name, 'report.pdf');
 //$phpmailer->AddCC('hello@wasteless.com');
 $phpmailer->msgHTML('
-<p>
+<p>Hi!<br><br>
 Thank you for your interest in improving your top line revenues and margins, by preventing shrinkage in your fresh category and reducing your environmental footprint with Wasteless STORE solution.<br><br>
-Attached you will find the full report that shows how '.$_POST['te_company'].' and reduce waste by $'.$_POST['wasteReductionValue'].', <br><br>
+Attached you will find the full report that shows how '.$_POST['te_company'].' can reduce waste by $'.$_POST['wasteReductionValue'].', <br><br>
 Please, reach us directly if you have any questions or if you are interested in proving the value of STORE. We can get it up and running in your stores within hours, with literally zero IT integration.<br><br>
 All the best,<br><br>
 The Wasteless Team
@@ -75,9 +75,9 @@ The Wasteless Team
 </p>
 '); //$phpmailer->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
 $phpmailer->AltBody = '
-<p>
+<p>Hi<br><br>
 Thank you for your interest in improving your top line revenues and margins, by preventing shrinkage in your fresh category and reducing your environmental footprint with Wasteless’ STORE solution.<br>
-Attached you will find the full report that shows how '.$_POST['te_company'].' and reduce waste by $'.$_POST['wasteReductionValue'].', <br>
+Attached you will find the full report that shows how '.$_POST['te_company'].' can reduce waste by $'.$_POST['wasteReductionValue'].', <br>
 Please, reach us directly if you have any questions or if you are interested in proving the value of STORE. We can get it up and running in your stores within hours, with literally zero IT integration.<br>
 All the best,
 The Wasteless Team
