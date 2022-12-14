@@ -132,9 +132,10 @@ html {
     text-align: center;
 }
 .heading-3 {
-    margin: 10px 10px 0px 10px;
+    margin: auto;
     color: #4a30c5;
     text-align: center;
+    padding: 0 80px;
 }
 .text-block-12-te {
     max-width: 420px;
