@@ -1,7 +1,6 @@
 // Fixed Value Variables
 let avgCostKgFixedAverageArr = [10, 6, 1.2, 5, 3, 12, 4, 3];
-let te_graph_image = '';
-let te_dec_graph_image = '';
+
 // Defualt revenue distribution (user input) - added poultry
 let userInputPercentages = [0.08, 0.05, 0.14, 0.06, 0.06, 0.01, 0.1, 0.4];
 // Default waste percentages per category - added poultry
@@ -75,6 +74,7 @@ let totalRevenueUpsaleInt;
 let totalWasteReductionValueInt;
 let oneYearChart;
 let TenYearChart;
+
 // Util
 function OneYearGraph() {
   document.getElementById("myChart").style.display = "block";
@@ -469,11 +469,6 @@ function makeChart() {
       },
       responsive: true,
       maintainAspectRatio: false,
-      animation: {
-        onComplete: function () {
-          te_graph_image = oneYearChart.toBase64Image();
-        },
-      },
     },
   });
   TenYearChart = new Chart(ctx10, {
@@ -536,108 +531,8 @@ function makeChart() {
       },
       responsive: true,
       maintainAspectRatio: false,
-      animation: {
-        onComplete: function () {
-
-          document.getElementById('te-result-section').innerHTML = '<img src="https://getstoree.000webhostapp.com/loader.gif" id="processing-image" width="35px" alt=""> We are creating a full report for your company! Please wait...';
-          te_dec_graph_image = TenYearChart.toBase64Image();
-         
-          let te_name = localStorage.getItem("username");
-          let te_email = localStorage.getItem("useremail");
-          let te_company = localStorage.getItem("usercompany");
-          let te_totalRevenue = document.getElementById('totalRevenue').value;
-          let te_wasteReductionValue = parseInt(
-            totalWasteReductionValueInt.toFixed(0)
-          ).toLocaleString();
-          let te_co2eReduced = parseInt(c02reducedTotal.toFixed(0)).toLocaleString();
-          let te_totalRevenueUpsale = parseInt(
-            totalRevenueUpsaleInt.toFixed(0)
-          ).toLocaleString();
-          let te_economicValue = parseInt(
-            totalEconomicValueInt.toFixed(0)
-          ).toLocaleString();
-          let te_wasteReductionValue_10 = parseInt(
-            (totalWasteReductionValueInt * 10).toFixed(0)
-          ).toLocaleString();
-          let te_co2eReduced_10 = parseInt((c02reducedTotal * 10).toFixed(0)).toLocaleString();
-          let te_totalRevenueUpsale_10 = parseInt(
-            (totalRevenueUpsaleInt * 10).toFixed(0)
-          ).toLocaleString();
-          let te_economicValue_10 = parseInt(
-            (totalEconomicValueInt * 10).toFixed(0)
-          ).toLocaleString();
-
-          let te_meatAndPoultryOutput = document.getElementById('meatAndPoultryOutput').innerText;
-          let te_meatAndPoultryWasteOutput = document.getElementById('meatAndPoultryWasteOutput').innerText;
-          let te_packedMealsOutput = document.getElementById('packedMealsOutput').innerText;
-          let te_packedMealsOutputWaste = document.getElementById('packedMealsOutputWaste').innerText;
-          let te_PoultryOutput = document.getElementById('PoultryOutput').innerText;
-          let te_PoultryWasteOutput = document.getElementById('PoultryWasteOutput').innerText;
-          let te_fruitAndVegetablesOutput = document.getElementById('fruitAndVegetablesOutput').innerText;
-          let te_fruitAndVegetablesWasteOutput = document.getElementById('fruitAndVegetablesWasteOutput').innerText;
-          let te_seafoodOutput = document.getElementById('seafoodOutput').innerText;
-          let te_seafoodWasteOutput = document.getElementById('seafoodWasteOutput').innerText;
-          let te_dairyOutput = document.getElementById('dairyOutput').innerText;
-          let te_dairyWasteOutput = document.getElementById('dairyWasteOutput').innerText;
-          let te_bakeryOutput = document.getElementById('bakeryOutput').innerText;
-          let te_bakeryWasteOutput = document.getElementById('bakeryWasteOutput').innerText;
-          let te_frozenFoodOutput = document.getElementById('frozenFoodOutput').innerText;
-          let te_frozenFoodOutputWaste = document.getElementById('frozenFoodOutputWaste').innerText;
-          let te_dryFoodsOutput = document.getElementById('dryFoodsOutput').innerText;
-            // POST request using fetch()
-            let formData = new FormData();
-            formData.append('te_graph_image',te_graph_image);
-            formData.append('te_dec_graph_image',te_dec_graph_image);
-            formData.append('te_name',te_name);
-            formData.append('te_email',te_email);
-            formData.append('te_company',te_company);
-            
-            formData.append('te_totalRevenue',te_totalRevenue);
-            formData.append('wasteReductionValue',te_wasteReductionValue);
-            formData.append('co2eReduced',te_co2eReduced);
-            formData.append('totalRevenueUpsale',te_totalRevenueUpsale);
-            formData.append('economicValue',te_economicValue);
-            formData.append('wasteReductionValue_10',te_wasteReductionValue_10);
-            formData.append('co2eReduced_10',te_co2eReduced_10);
-            formData.append('totalRevenueUpsale_10',te_totalRevenueUpsale_10);
-            formData.append('economicValue_10',te_economicValue_10);
-
-            formData.append('te_meatAndPoultryOutput',te_meatAndPoultryOutput);
-            formData.append('te_meatAndPoultryWasteOutput',te_meatAndPoultryWasteOutput);
-            formData.append('te_packedMealsOutput',te_packedMealsOutput);
-            formData.append('te_packedMealsOutputWaste',te_packedMealsOutputWaste);
-            formData.append('te_PoultryOutput',te_PoultryOutput);
-            formData.append('te_PoultryWasteOutput',te_PoultryWasteOutput);
-            formData.append('te_fruitAndVegetablesOutput',te_fruitAndVegetablesOutput);
-            formData.append('te_fruitAndVegetablesWasteOutput',te_fruitAndVegetablesWasteOutput);
-            formData.append('te_seafoodOutput',te_seafoodOutput);
-            formData.append('te_seafoodWasteOutput',te_seafoodWasteOutput);
-            formData.append('te_dairyOutput',te_dairyOutput);
-            formData.append('te_dairyWasteOutput',te_dairyWasteOutput);
-            formData.append('te_bakeryOutput',te_bakeryOutput);
-            formData.append('te_bakeryWasteOutput',te_bakeryWasteOutput);
-            formData.append('te_frozenFoodOutput',te_frozenFoodOutput);
-            formData.append('te_frozenFoodOutputWaste',te_frozenFoodOutputWaste);
-            formData.append('te_dryFoodsOutput',te_dryFoodsOutput);
-            
-            fetch("https://getstoree.000webhostapp.com/backend-sendmail.php", {
-              method: "POST", // Adding method type
-              headers: {
-                'Accept': 'application/json'
-              },
-              body: formData // Adding body or contents to send
-            })
-            .then(response => response.json()) // Converting to JSON
-            .then(json => {
-              console.log(json);
-              document.getElementById('te-result-section').innerHTML = '<img src="https://getstoree.000webhostapp.com/done.png" id="processing-image" width="35px" alt=""> Done! You will get an email with the full business case report.';
-            });      
-        },
-      },
     },
   });
-
-  
 }
 
 // GETS DATA ON PAGE LOAD

@@ -177,7 +177,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 20px;
+  margin-top: 20px;
 }
 
 .subinformation {
@@ -316,7 +316,7 @@ input {
 }
 .value,
 .wasteReductionValue {
-  color: #4caf50;
+  color: #47d71d;
 }
 
 .grey {
